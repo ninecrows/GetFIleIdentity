@@ -89,7 +89,7 @@ public:
 
 		{
 			wchar_t buffer[32];
-			_snwprintf_s(buffer, 32, L"%016lx", info.VolumeSerialNumber);
+			_snwprintf_s(buffer, 32, L"%016I64x", info.VolumeSerialNumber);
 		
 			result += buffer;
 			result += L":";
