@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="CommandLineOptions.h" />
     <ClInclude Include="FIleIdInformation.h" />
+    <ClInclude Include="Helpers.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>

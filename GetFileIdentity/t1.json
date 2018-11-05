@@ -1,0 +1,15 @@
+{
+    "foo" : "bar",
+    "thingy" : 1.0,
+    "frobozz" : false,
+    "fjdk" : true,
+    "sdkjj" : new,
+    "jfdks" : [
+        1, 2, 5, 7, 9
+    ],
+    "kkkkk" : {
+        "a" : 1,
+        "b" : "foo",
+        "c" : "bar"
+    }
+}

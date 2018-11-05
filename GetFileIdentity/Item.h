@@ -8,30 +8,30 @@ namespace C9
 {
 	namespace Json
 	{
-		class Item
+		class Value
 		{
 		public:
 			inline
-			Item(void)
+			Value(void)
 			{
 
 			}
 
 			inline
 				virtual
-				~Item(void)
+				~Value(void)
 			{
 
 			}
 		};
 
-		class ItemString : public Item
+		class String : public Value
 		{
 		private:
 			std::wstring value;
 				
 		public:
-			ItemString(const std::wstring myValue) : value(myValue)
+			String(const std::wstring myValue) : value(myValue)
 			{
 			}
 
@@ -42,13 +42,13 @@ namespace C9
 			}
 		};
 
-		class ItemNumber : public Item
+		class Number : public Value
 		{
 		private:
 			double value;
 						
 		public:
-			ItemNumber(double myValue) : value(myValue)
+			Number(double myValue) : value(myValue)
 			{
 
 			}
@@ -60,13 +60,13 @@ namespace C9
 			}
 		};
 
-		class ItemBoolean : public Item
+		class Boolean : public Value
 		{
 		private:
 			bool value;
 
 		public:
-			ItemBoolean(bool myValue) : value(myValue)
+			Boolean(bool myValue) : value(myValue)
 			{
 
 			}
@@ -79,7 +79,7 @@ namespace C9
 			}
 		};
 
-		class ItemNull : public Item
+		class ItemNull : public Value
 		{
 		public:
 			ItemNull(void)
@@ -88,18 +88,18 @@ namespace C9
 			}
 		};
 
-		class ItemArray : public Item
+		class Array : public Value
 		{
 		private:
-			std::vector<std::shared_ptr<Item>> value;
+			std::vector<std::shared_ptr<Value>> value;
 
 		public:
-			ItemArray(void)
+			Array(void)
 			{
 
 			}
 
-			ItemArray(std::vector<std::shared_ptr<Item>> values) : value(values)
+			Array(std::vector<std::shared_ptr<Value>> values) : value(values)
 			{
 
 			}
@@ -110,31 +110,31 @@ namespace C9
 				return (value.size());
 			}
 
-			std::shared_ptr<Item> 
+			std::shared_ptr<Value> 
 				getValue(size_t index)
 			{
 				return (value[index]);
 			}
 
 			void
-				add(std::shared_ptr<Item> myValue)
+				add(std::shared_ptr<Value> myValue)
 			{
 				value.push_back(myValue);
 			}
 		};
 
-		class ItemObject : public Item
+		class Object : public Value
 		{
 		private:
-			std::map<std::wstring, std::shared_ptr<Item>> value;
+			std::map<std::wstring, std::shared_ptr<Value>> value;
 
 		public:
-			ItemObject(void)
+			Object(void)
 			{
 
 			}
 
-			ItemObject(std::map<std::wstring, std::shared_ptr<Item>> values) : value(values)
+			Object(std::map<std::wstring, std::shared_ptr<Value>> values) : value(values)
 			{
 
 			}
@@ -151,7 +151,7 @@ namespace C9
 				return (value.find(key) != value.end());
 			}
 
-			std::shared_ptr<Item> 
+			std::shared_ptr<Value> 
 				getValue(std::wstring key)
 			{
 				return (value[key]);
@@ -159,7 +159,7 @@ namespace C9
 
 			void
 				add(const std::wstring &key,
-					std::shared_ptr<Item> myValue)
+					std::shared_ptr<Value> myValue)
 			{
 				value[key] = myValue;
 			}
